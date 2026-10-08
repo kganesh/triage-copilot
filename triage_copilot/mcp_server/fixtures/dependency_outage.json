@@ -1,0 +1,311 @@
+{
+  "description": "auth-svc failing because the upstream identity provider returns 503.",
+  "services": {
+    "auth-svc": {
+      "metrics": {
+        "latency_p99_ms": {
+          "baseline": 120,
+          "points": [
+            [
+              60,
+              120
+            ],
+            [
+              50,
+              118
+            ],
+            [
+              40,
+              125
+            ],
+            [
+              30,
+              130
+            ],
+            [
+              20,
+              140
+            ],
+            [
+              10,
+              135
+            ],
+            [
+              0,
+              138
+            ]
+          ]
+        },
+        "error_rate_pct": {
+          "baseline": 0.1,
+          "points": [
+            [
+              60,
+              0.1
+            ],
+            [
+              50,
+              0.1
+            ],
+            [
+              40,
+              0.1
+            ],
+            [
+              30,
+              18.0
+            ],
+            [
+              20,
+              33.0
+            ],
+            [
+              10,
+              35.5
+            ],
+            [
+              0,
+              35.0
+            ]
+          ]
+        },
+        "cpu_utilization_pct": {
+          "baseline": 30,
+          "points": [
+            [
+              60,
+              30
+            ],
+            [
+              50,
+              31
+            ],
+            [
+              40,
+              30
+            ],
+            [
+              30,
+              25
+            ],
+            [
+              20,
+              22
+            ],
+            [
+              10,
+              22
+            ],
+            [
+              0,
+              21
+            ]
+          ]
+        },
+        "rps": {
+          "baseline": 1200,
+          "points": [
+            [
+              60,
+              1190
+            ],
+            [
+              50,
+              1210
+            ],
+            [
+              40,
+              1200
+            ],
+            [
+              30,
+              1205
+            ],
+            [
+              20,
+              1198
+            ],
+            [
+              10,
+              1201
+            ],
+            [
+              0,
+              1200
+            ]
+          ]
+        }
+      },
+      "logs": [
+        {
+          "minutes_ago": 31,
+          "level": "ERROR",
+          "msg": "Upstream idp.example.com returned 503 Service Unavailable for POST /oauth2/token"
+        },
+        {
+          "minutes_ago": 28,
+          "level": "WARN",
+          "msg": "Circuit breaker 'idp' transitioned CLOSED -> OPEN"
+        },
+        {
+          "minutes_ago": 5,
+          "level": "ERROR",
+          "msg": "Token exchange failed: circuit 'idp' OPEN, failing fast"
+        }
+      ],
+      "deploys": [
+        {
+          "minutes_ago": 4000,
+          "kind": "deploy",
+          "version": "v4.1.0",
+          "author": "rgarcia",
+          "summary": "Upgrade OAuth2 library"
+        }
+      ]
+    },
+    "checkout-svc": {
+      "metrics": {
+        "latency_p99_ms": {
+          "baseline": 300,
+          "points": [
+            [
+              60,
+              300
+            ],
+            [
+              50,
+              300
+            ],
+            [
+              40,
+              300
+            ],
+            [
+              30,
+              300
+            ],
+            [
+              20,
+              300
+            ],
+            [
+              10,
+              300
+            ],
+            [
+              0,
+              300
+            ]
+          ]
+        },
+        "error_rate_pct": {
+          "baseline": 0.2,
+          "points": [
+            [
+              60,
+              0.2
+            ],
+            [
+              50,
+              0.2
+            ],
+            [
+              40,
+              0.2
+            ],
+            [
+              30,
+              0.2
+            ],
+            [
+              20,
+              0.2
+            ],
+            [
+              10,
+              0.2
+            ],
+            [
+              0,
+              0.2
+            ]
+          ]
+        },
+        "cpu_utilization_pct": {
+          "baseline": 35,
+          "points": [
+            [
+              60,
+              35
+            ],
+            [
+              50,
+              35
+            ],
+            [
+              40,
+              35
+            ],
+            [
+              30,
+              35
+            ],
+            [
+              20,
+              35
+            ],
+            [
+              10,
+              35
+            ],
+            [
+              0,
+              35
+            ]
+          ]
+        },
+        "rps": {
+          "baseline": 200,
+          "points": [
+            [
+              60,
+              200
+            ],
+            [
+              50,
+              200
+            ],
+            [
+              40,
+              200
+            ],
+            [
+              30,
+              200
+            ],
+            [
+              20,
+              200
+            ],
+            [
+              10,
+              200
+            ],
+            [
+              0,
+              200
+            ]
+          ]
+        }
+      },
+      "logs": [
+        {
+          "minutes_ago": 45,
+          "level": "INFO",
+          "msg": "health check ok"
+        }
+      ],
+      "deploys": []
+    }
+  }
+}

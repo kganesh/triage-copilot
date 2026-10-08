@@ -1,0 +1,473 @@
+{
+  "description": "checkout-svc latency spike after a deploy changed pricing-client retries (retry storm).",
+  "services": {
+    "checkout-svc": {
+      "metrics": {
+        "latency_p99_ms": {
+          "baseline": 310,
+          "points": [
+            [
+              60,
+              300
+            ],
+            [
+              50,
+              310
+            ],
+            [
+              40,
+              305
+            ],
+            [
+              30,
+              300
+            ],
+            [
+              20,
+              1850
+            ],
+            [
+              10,
+              2400
+            ],
+            [
+              0,
+              2600
+            ]
+          ]
+        },
+        "error_rate_pct": {
+          "baseline": 0.2,
+          "points": [
+            [
+              60,
+              0.2
+            ],
+            [
+              50,
+              0.2
+            ],
+            [
+              40,
+              0.3
+            ],
+            [
+              30,
+              0.2
+            ],
+            [
+              20,
+              2.8
+            ],
+            [
+              10,
+              4.1
+            ],
+            [
+              0,
+              4.5
+            ]
+          ]
+        },
+        "cpu_utilization_pct": {
+          "baseline": 40,
+          "points": [
+            [
+              60,
+              40
+            ],
+            [
+              50,
+              41
+            ],
+            [
+              40,
+              39
+            ],
+            [
+              30,
+              42
+            ],
+            [
+              20,
+              55
+            ],
+            [
+              10,
+              58
+            ],
+            [
+              0,
+              57
+            ]
+          ]
+        },
+        "db_connections_in_use": {
+          "baseline": 12,
+          "points": [
+            [
+              60,
+              12
+            ],
+            [
+              50,
+              11
+            ],
+            [
+              40,
+              13
+            ],
+            [
+              30,
+              12
+            ],
+            [
+              20,
+              14
+            ],
+            [
+              10,
+              13
+            ],
+            [
+              0,
+              14
+            ]
+          ],
+          "note": "pool max 40"
+        },
+        "rps": {
+          "baseline": 850,
+          "points": [
+            [
+              60,
+              840
+            ],
+            [
+              50,
+              860
+            ],
+            [
+              40,
+              850
+            ],
+            [
+              30,
+              845
+            ],
+            [
+              20,
+              855
+            ],
+            [
+              10,
+              850
+            ],
+            [
+              0,
+              848
+            ]
+          ]
+        }
+      },
+      "logs": [
+        {
+          "minutes_ago": 22,
+          "level": "INFO",
+          "msg": "Started checkout-svc v2.14.0"
+        },
+        {
+          "minutes_ago": 18,
+          "level": "WARN",
+          "msg": "pricing-client retry attempt 4/5 for GET /v1/price (no backoff)"
+        },
+        {
+          "minutes_ago": 15,
+          "level": "ERROR",
+          "msg": "PricingClientTimeoutException: gave up after 5 retries (elapsed 2140ms)"
+        },
+        {
+          "minutes_ago": 6,
+          "level": "ERROR",
+          "msg": "PricingClientTimeoutException: gave up after 5 retries (elapsed 2310ms)"
+        },
+        {
+          "minutes_ago": 2,
+          "level": "WARN",
+          "msg": "pricing-client retry attempt 5/5 for GET /v1/price (no backoff)"
+        }
+      ],
+      "deploys": [
+        {
+          "minutes_ago": 25,
+          "kind": "deploy",
+          "version": "v2.14.0",
+          "author": "jlee",
+          "summary": "Bump pricing-client 3.1 -> 3.2; retry policy max_retries=5, jitter disabled"
+        },
+        {
+          "minutes_ago": 1300,
+          "kind": "deploy",
+          "version": "v2.13.4",
+          "author": "mpatel",
+          "summary": "Copy change on order confirmation page"
+        }
+      ]
+    },
+    "pricing-svc": {
+      "metrics": {
+        "latency_p99_ms": {
+          "baseline": 90,
+          "points": [
+            [
+              60,
+              90
+            ],
+            [
+              50,
+              92
+            ],
+            [
+              40,
+              88
+            ],
+            [
+              30,
+              91
+            ],
+            [
+              20,
+              380
+            ],
+            [
+              10,
+              450
+            ],
+            [
+              0,
+              470
+            ]
+          ]
+        },
+        "rps": {
+          "baseline": 900,
+          "points": [
+            [
+              60,
+              890
+            ],
+            [
+              50,
+              910
+            ],
+            [
+              40,
+              900
+            ],
+            [
+              30,
+              905
+            ],
+            [
+              20,
+              2950
+            ],
+            [
+              10,
+              3400
+            ],
+            [
+              0,
+              3500
+            ]
+          ]
+        },
+        "error_rate_pct": {
+          "baseline": 0.1,
+          "points": [
+            [
+              60,
+              0.1
+            ],
+            [
+              50,
+              0.1
+            ],
+            [
+              40,
+              0.1
+            ],
+            [
+              30,
+              0.1
+            ],
+            [
+              20,
+              1.9
+            ],
+            [
+              10,
+              2.4
+            ],
+            [
+              0,
+              2.6
+            ]
+          ]
+        }
+      },
+      "logs": [
+        {
+          "minutes_ago": 12,
+          "level": "WARN",
+          "msg": "Request rate 3.8x baseline from caller checkout-svc"
+        }
+      ],
+      "deploys": []
+    },
+    "inventory-svc": {
+      "metrics": {
+        "latency_p99_ms": {
+          "baseline": 120,
+          "points": [
+            [
+              60,
+              120
+            ],
+            [
+              50,
+              120
+            ],
+            [
+              40,
+              120
+            ],
+            [
+              30,
+              120
+            ],
+            [
+              20,
+              120
+            ],
+            [
+              10,
+              120
+            ],
+            [
+              0,
+              120
+            ]
+          ]
+        },
+        "error_rate_pct": {
+          "baseline": 0.1,
+          "points": [
+            [
+              60,
+              0.1
+            ],
+            [
+              50,
+              0.1
+            ],
+            [
+              40,
+              0.1
+            ],
+            [
+              30,
+              0.1
+            ],
+            [
+              20,
+              0.1
+            ],
+            [
+              10,
+              0.1
+            ],
+            [
+              0,
+              0.1
+            ]
+          ]
+        },
+        "cpu_utilization_pct": {
+          "baseline": 35,
+          "points": [
+            [
+              60,
+              35
+            ],
+            [
+              50,
+              35
+            ],
+            [
+              40,
+              35
+            ],
+            [
+              30,
+              35
+            ],
+            [
+              20,
+              35
+            ],
+            [
+              10,
+              35
+            ],
+            [
+              0,
+              35
+            ]
+          ]
+        },
+        "rps": {
+          "baseline": 200,
+          "points": [
+            [
+              60,
+              200
+            ],
+            [
+              50,
+              200
+            ],
+            [
+              40,
+              200
+            ],
+            [
+              30,
+              200
+            ],
+            [
+              20,
+              200
+            ],
+            [
+              10,
+              200
+            ],
+            [
+              0,
+              200
+            ]
+          ]
+        }
+      },
+      "logs": [
+        {
+          "minutes_ago": 45,
+          "level": "INFO",
+          "msg": "health check ok"
+        }
+      ],
+      "deploys": []
+    }
+  }
+}

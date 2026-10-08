@@ -1,0 +1,306 @@
+{
+  "description": "notifications-svc failing after a config change pointed it at a provider endpoint with the wrong credentials.",
+  "services": {
+    "notifications-svc": {
+      "metrics": {
+        "latency_p99_ms": {
+          "baseline": 300,
+          "points": [
+            [
+              60,
+              300
+            ],
+            [
+              50,
+              290
+            ],
+            [
+              40,
+              310
+            ],
+            [
+              30,
+              305
+            ],
+            [
+              20,
+              320
+            ],
+            [
+              10,
+              315
+            ],
+            [
+              0,
+              318
+            ]
+          ]
+        },
+        "error_rate_pct": {
+          "baseline": 0.5,
+          "points": [
+            [
+              60,
+              0.5
+            ],
+            [
+              50,
+              0.4
+            ],
+            [
+              40,
+              0.5
+            ],
+            [
+              30,
+              60.0
+            ],
+            [
+              20,
+              61.5
+            ],
+            [
+              10,
+              62.0
+            ],
+            [
+              0,
+              61.8
+            ]
+          ]
+        },
+        "cpu_utilization_pct": {
+          "baseline": 25,
+          "points": [
+            [
+              60,
+              25
+            ],
+            [
+              50,
+              24
+            ],
+            [
+              40,
+              26
+            ],
+            [
+              30,
+              25
+            ],
+            [
+              20,
+              24
+            ],
+            [
+              10,
+              25
+            ],
+            [
+              0,
+              25
+            ]
+          ]
+        },
+        "rps": {
+          "baseline": 300,
+          "points": [
+            [
+              60,
+              300
+            ],
+            [
+              50,
+              302
+            ],
+            [
+              40,
+              298
+            ],
+            [
+              30,
+              301
+            ],
+            [
+              20,
+              300
+            ],
+            [
+              10,
+              299
+            ],
+            [
+              0,
+              300
+            ]
+          ]
+        }
+      },
+      "logs": [
+        {
+          "minutes_ago": 29,
+          "level": "ERROR",
+          "msg": "401 Unauthorized from email provider endpoint sendgrid-v2: invalid API key"
+        },
+        {
+          "minutes_ago": 10,
+          "level": "ERROR",
+          "msg": "401 Unauthorized from email provider endpoint sendgrid-v2: invalid API key"
+        }
+      ],
+      "deploys": [
+        {
+          "minutes_ago": 31,
+          "kind": "config",
+          "version": "cfg-2207",
+          "author": "dwhite",
+          "summary": "Feature flag email_provider: sendgrid -> sendgrid-v2"
+        }
+      ]
+    },
+    "auth-svc": {
+      "metrics": {
+        "latency_p99_ms": {
+          "baseline": 120,
+          "points": [
+            [
+              60,
+              120
+            ],
+            [
+              50,
+              120
+            ],
+            [
+              40,
+              120
+            ],
+            [
+              30,
+              120
+            ],
+            [
+              20,
+              120
+            ],
+            [
+              10,
+              120
+            ],
+            [
+              0,
+              120
+            ]
+          ]
+        },
+        "error_rate_pct": {
+          "baseline": 0.1,
+          "points": [
+            [
+              60,
+              0.1
+            ],
+            [
+              50,
+              0.1
+            ],
+            [
+              40,
+              0.1
+            ],
+            [
+              30,
+              0.1
+            ],
+            [
+              20,
+              0.1
+            ],
+            [
+              10,
+              0.1
+            ],
+            [
+              0,
+              0.1
+            ]
+          ]
+        },
+        "cpu_utilization_pct": {
+          "baseline": 35,
+          "points": [
+            [
+              60,
+              35
+            ],
+            [
+              50,
+              35
+            ],
+            [
+              40,
+              35
+            ],
+            [
+              30,
+              35
+            ],
+            [
+              20,
+              35
+            ],
+            [
+              10,
+              35
+            ],
+            [
+              0,
+              35
+            ]
+          ]
+        },
+        "rps": {
+          "baseline": 200,
+          "points": [
+            [
+              60,
+              200
+            ],
+            [
+              50,
+              200
+            ],
+            [
+              40,
+              200
+            ],
+            [
+              30,
+              200
+            ],
+            [
+              20,
+              200
+            ],
+            [
+              10,
+              200
+            ],
+            [
+              0,
+              200
+            ]
+          ]
+        }
+      },
+      "logs": [
+        {
+          "minutes_ago": 45,
+          "level": "INFO",
+          "msg": "health check ok"
+        }
+      ],
+      "deploys": []
+    }
+  }
+}

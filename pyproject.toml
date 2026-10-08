@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "triage-copilot"
+version = "0.1.0"
+description = "Incident triage copilot: orchestrator + 3 sub-agents, RAG over runbooks, MCP telemetry server, and an eval suite."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "anthropic>=0.40",
+    "mcp>=2.2",
+    "pydantic>=2.7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+otel = ["opentelemetry-api>=1.25", "opentelemetry-sdk>=1.25"]
+
+[project.scripts]
+triage = "triage_copilot.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["triage_copilot*"]
+
+[tool.setuptools.package-data]
+triage_copilot = ["prompts/*.md", "mcp_server/fixtures/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["evals"]
+pythonpath = ["."]
+markers = ["live: needs ANTHROPIC_API_KEY (calls the real model)"]

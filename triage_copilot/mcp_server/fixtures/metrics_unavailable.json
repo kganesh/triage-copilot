@@ -1,0 +1,178 @@
+{
+  "description": "inventory-svc OOM kills; the metrics backend times out so only logs are available.",
+  "failures": {
+    "query_metrics": "Prometheus query timeout after 30s (backend overloaded)"
+  },
+  "services": {
+    "inventory-svc": {
+      "metrics": {},
+      "logs": [
+        {
+          "minutes_ago": 33,
+          "level": "ERROR",
+          "msg": "java.lang.OutOfMemoryError: Java heap space at InventorySnapshotCache.load"
+        },
+        {
+          "minutes_ago": 32,
+          "level": "WARN",
+          "msg": "Container inventory-svc OOMKilled (limit 2Gi); restart count 3"
+        },
+        {
+          "minutes_ago": 12,
+          "level": "ERROR",
+          "msg": "java.lang.OutOfMemoryError: Java heap space at InventorySnapshotCache.load"
+        },
+        {
+          "minutes_ago": 11,
+          "level": "WARN",
+          "msg": "Container inventory-svc OOMKilled (limit 2Gi); restart count 4"
+        }
+      ],
+      "deploys": []
+    },
+    "checkout-svc": {
+      "metrics": {
+        "latency_p99_ms": {
+          "baseline": 300,
+          "points": [
+            [
+              60,
+              300
+            ],
+            [
+              50,
+              300
+            ],
+            [
+              40,
+              300
+            ],
+            [
+              30,
+              300
+            ],
+            [
+              20,
+              300
+            ],
+            [
+              10,
+              300
+            ],
+            [
+              0,
+              300
+            ]
+          ]
+        },
+        "error_rate_pct": {
+          "baseline": 0.2,
+          "points": [
+            [
+              60,
+              0.2
+            ],
+            [
+              50,
+              0.2
+            ],
+            [
+              40,
+              0.2
+            ],
+            [
+              30,
+              0.2
+            ],
+            [
+              20,
+              0.2
+            ],
+            [
+              10,
+              0.2
+            ],
+            [
+              0,
+              0.2
+            ]
+          ]
+        },
+        "cpu_utilization_pct": {
+          "baseline": 35,
+          "points": [
+            [
+              60,
+              35
+            ],
+            [
+              50,
+              35
+            ],
+            [
+              40,
+              35
+            ],
+            [
+              30,
+              35
+            ],
+            [
+              20,
+              35
+            ],
+            [
+              10,
+              35
+            ],
+            [
+              0,
+              35
+            ]
+          ]
+        },
+        "rps": {
+          "baseline": 200,
+          "points": [
+            [
+              60,
+              200
+            ],
+            [
+              50,
+              200
+            ],
+            [
+              40,
+              200
+            ],
+            [
+              30,
+              200
+            ],
+            [
+              20,
+              200
+            ],
+            [
+              10,
+              200
+            ],
+            [
+              0,
+              200
+            ]
+          ]
+        }
+      },
+      "logs": [
+        {
+          "minutes_ago": 45,
+          "level": "INFO",
+          "msg": "health check ok"
+        }
+      ],
+      "deploys": []
+    }
+  }
+}

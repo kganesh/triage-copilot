@@ -1,0 +1,27 @@
+{"query": "latency spike right after deploy of new version", "relevant": ["runbook-rollback", "pm-2025-03-checkout-retry-storm"]}
+{"query": "how do I roll back a bad release", "relevant": ["runbook-rollback"]}
+{"query": "retry storm no backoff downstream request rate tripled", "relevant": ["pm-2025-03-checkout-retry-storm", "runbook-rollback"]}
+{"query": "PricingClientTimeoutException retries checkout", "relevant": ["pm-2025-03-checkout-retry-storm", "runbook-rollback"]}
+{"query": "HikariPool connection is not available request timed out", "relevant": ["runbook-db-pool", "pm-2025-07-orders-db-pool"]}
+{"query": "db connections in use at pool maximum while CPU drops", "relevant": ["runbook-db-pool"]}
+{"query": "slow query holding database connections missing index", "relevant": ["runbook-db-pool", "pm-2025-07-orders-db-pool"]}
+{"query": "should we increase the connection pool size", "relevant": ["runbook-db-pool", "pm-2025-07-orders-db-pool"]}
+{"query": "lock wait slow UPDATE exhausting pool", "relevant": ["runbook-db-pool"]}
+{"query": "CPU throttled near 100 percent traffic flat executor queue depth", "relevant": ["runbook-cpu-saturation", "pm-2026-01-payments-noisy-neighbor"]}
+{"query": "batch job on same node consuming CPU noisy neighbor", "relevant": ["runbook-cpu-saturation", "pm-2026-01-payments-noisy-neighbor"]}
+{"query": "reconciler parallelism increased payments slow", "relevant": ["pm-2026-01-payments-noisy-neighbor", "runbook-cpu-saturation"]}
+{"query": "upstream returned 503 service unavailable circuit breaker open", "relevant": ["runbook-upstream-dependency", "pm-2026-04-auth-idp-outage"]}
+{"query": "identity provider outage login failures", "relevant": ["pm-2026-04-auth-idp-outage", "runbook-upstream-dependency"]}
+{"query": "errors high but latency flat third party provider", "relevant": ["runbook-upstream-dependency", "pm-2026-04-auth-idp-outage"]}
+{"query": "OOMKilled container restart loop", "relevant": ["runbook-oom"]}
+{"query": "java.lang.OutOfMemoryError Java heap space cache", "relevant": ["runbook-oom"]}
+{"query": "metrics unavailable rely on restart counts", "relevant": ["runbook-oom"]}
+{"query": "401 unauthorized invalid API key after feature flag change", "relevant": ["runbook-config-change"]}
+{"query": "revert configuration change new provider endpoint credentials", "relevant": ["runbook-config-change"]}
+{"query": "how to decide incident severity sev1 sev2", "relevant": ["runbook-triage-general"]}
+{"query": "golden signals what changed first five minutes", "relevant": ["runbook-triage-general"]}
+{"query": "when can we declare the incident resolved", "relevant": ["runbook-triage-general"]}
+{"query": "kubernetes pod disruption budget for node drains", "relevant": []}
+{"query": "rotate TLS certificate on the load balancer", "relevant": []}
+{"query": "quarterly marketing budget planning", "relevant": []}
+{"query": "frontend css grid layout broken on safari", "relevant": []}

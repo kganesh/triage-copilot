@@ -1,0 +1,345 @@
+{
+  "description": "cart-svc DB pool exhaustion; a docs-only deploy happened just before, as a red herring.",
+  "services": {
+    "cart-svc": {
+      "metrics": {
+        "latency_p99_ms": {
+          "baseline": 150,
+          "points": [
+            [
+              60,
+              150
+            ],
+            [
+              50,
+              155
+            ],
+            [
+              40,
+              160
+            ],
+            [
+              30,
+              152
+            ],
+            [
+              20,
+              2200
+            ],
+            [
+              10,
+              6400
+            ],
+            [
+              0,
+              7000
+            ]
+          ]
+        },
+        "error_rate_pct": {
+          "baseline": 0.1,
+          "points": [
+            [
+              60,
+              0.1
+            ],
+            [
+              50,
+              0.1
+            ],
+            [
+              40,
+              0.1
+            ],
+            [
+              30,
+              0.2
+            ],
+            [
+              20,
+              5.5
+            ],
+            [
+              10,
+              12.0
+            ],
+            [
+              0,
+              13.4
+            ]
+          ]
+        },
+        "cpu_utilization_pct": {
+          "baseline": 35,
+          "points": [
+            [
+              60,
+              35
+            ],
+            [
+              50,
+              36
+            ],
+            [
+              40,
+              35
+            ],
+            [
+              30,
+              34
+            ],
+            [
+              20,
+              25
+            ],
+            [
+              10,
+              24
+            ],
+            [
+              0,
+              24
+            ]
+          ]
+        },
+        "db_connections_in_use": {
+          "baseline": 10,
+          "points": [
+            [
+              60,
+              10
+            ],
+            [
+              50,
+              11
+            ],
+            [
+              40,
+              12
+            ],
+            [
+              30,
+              22
+            ],
+            [
+              20,
+              40
+            ],
+            [
+              10,
+              40
+            ],
+            [
+              0,
+              40
+            ]
+          ],
+          "note": "pool max 40"
+        },
+        "rps": {
+          "baseline": 700,
+          "points": [
+            [
+              60,
+              700
+            ],
+            [
+              50,
+              705
+            ],
+            [
+              40,
+              698
+            ],
+            [
+              30,
+              702
+            ],
+            [
+              20,
+              700
+            ],
+            [
+              10,
+              701
+            ],
+            [
+              0,
+              699
+            ]
+          ]
+        }
+      },
+      "logs": [
+        {
+          "minutes_ago": 26,
+          "level": "WARN",
+          "msg": "Slow query (9800 ms): UPDATE cart_items SET reserved = true WHERE cart_id IN (...) -- lock wait"
+        },
+        {
+          "minutes_ago": 18,
+          "level": "ERROR",
+          "msg": "HikariPool-1 - Connection is not available, request timed out after 30000ms"
+        },
+        {
+          "minutes_ago": 6,
+          "level": "ERROR",
+          "msg": "HikariPool-1 - Connection is not available, request timed out after 30000ms"
+        }
+      ],
+      "deploys": [
+        {
+          "minutes_ago": 15,
+          "kind": "deploy",
+          "version": "v3.8.2",
+          "author": "sbrown",
+          "summary": "Docs only: update README and dashboard links; no code changes"
+        }
+      ]
+    },
+    "checkout-svc": {
+      "metrics": {
+        "latency_p99_ms": {
+          "baseline": 300,
+          "points": [
+            [
+              60,
+              300
+            ],
+            [
+              50,
+              300
+            ],
+            [
+              40,
+              300
+            ],
+            [
+              30,
+              300
+            ],
+            [
+              20,
+              300
+            ],
+            [
+              10,
+              300
+            ],
+            [
+              0,
+              300
+            ]
+          ]
+        },
+        "error_rate_pct": {
+          "baseline": 0.2,
+          "points": [
+            [
+              60,
+              0.2
+            ],
+            [
+              50,
+              0.2
+            ],
+            [
+              40,
+              0.2
+            ],
+            [
+              30,
+              0.2
+            ],
+            [
+              20,
+              0.2
+            ],
+            [
+              10,
+              0.2
+            ],
+            [
+              0,
+              0.2
+            ]
+          ]
+        },
+        "cpu_utilization_pct": {
+          "baseline": 35,
+          "points": [
+            [
+              60,
+              35
+            ],
+            [
+              50,
+              35
+            ],
+            [
+              40,
+              35
+            ],
+            [
+              30,
+              35
+            ],
+            [
+              20,
+              35
+            ],
+            [
+              10,
+              35
+            ],
+            [
+              0,
+              35
+            ]
+          ]
+        },
+        "rps": {
+          "baseline": 200,
+          "points": [
+            [
+              60,
+              200
+            ],
+            [
+              50,
+              200
+            ],
+            [
+              40,
+              200
+            ],
+            [
+              30,
+              200
+            ],
+            [
+              20,
+              200
+            ],
+            [
+              10,
+              200
+            ],
+            [
+              0,
+              200
+            ]
+          ]
+        }
+      },
+      "logs": [
+        {
+          "minutes_ago": 45,
+          "level": "INFO",
+          "msg": "health check ok"
+        }
+      ],
+      "deploys": []
+    }
+  }
+}

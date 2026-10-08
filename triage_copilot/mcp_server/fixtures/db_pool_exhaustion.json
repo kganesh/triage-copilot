@@ -1,0 +1,350 @@
+{
+  "description": "orders-svc DB connection pool exhausted by a slow query; no recent deploy.",
+  "services": {
+    "orders-svc": {
+      "metrics": {
+        "latency_p99_ms": {
+          "baseline": 250,
+          "points": [
+            [
+              60,
+              240
+            ],
+            [
+              50,
+              260
+            ],
+            [
+              40,
+              900
+            ],
+            [
+              30,
+              4800
+            ],
+            [
+              20,
+              9000
+            ],
+            [
+              10,
+              12000
+            ],
+            [
+              0,
+              12500
+            ]
+          ]
+        },
+        "error_rate_pct": {
+          "baseline": 0.3,
+          "points": [
+            [
+              60,
+              0.3
+            ],
+            [
+              50,
+              0.3
+            ],
+            [
+              40,
+              1.2
+            ],
+            [
+              30,
+              8.0
+            ],
+            [
+              20,
+              15.5
+            ],
+            [
+              10,
+              22.0
+            ],
+            [
+              0,
+              23.1
+            ]
+          ]
+        },
+        "cpu_utilization_pct": {
+          "baseline": 45,
+          "points": [
+            [
+              60,
+              44
+            ],
+            [
+              50,
+              46
+            ],
+            [
+              40,
+              40
+            ],
+            [
+              30,
+              30
+            ],
+            [
+              20,
+              28
+            ],
+            [
+              10,
+              27
+            ],
+            [
+              0,
+              27
+            ]
+          ]
+        },
+        "db_connections_in_use": {
+          "baseline": 18,
+          "points": [
+            [
+              60,
+              18
+            ],
+            [
+              50,
+              21
+            ],
+            [
+              40,
+              34
+            ],
+            [
+              30,
+              50
+            ],
+            [
+              20,
+              50
+            ],
+            [
+              10,
+              50
+            ],
+            [
+              0,
+              50
+            ]
+          ],
+          "note": "pool max 50"
+        },
+        "rps": {
+          "baseline": 600,
+          "points": [
+            [
+              60,
+              590
+            ],
+            [
+              50,
+              610
+            ],
+            [
+              40,
+              600
+            ],
+            [
+              30,
+              605
+            ],
+            [
+              20,
+              600
+            ],
+            [
+              10,
+              598
+            ],
+            [
+              0,
+              602
+            ]
+          ]
+        }
+      },
+      "logs": [
+        {
+          "minutes_ago": 38,
+          "level": "WARN",
+          "msg": "Slow query (12400 ms): SELECT * FROM order_items WHERE customer_ref = ? ORDER BY created_at"
+        },
+        {
+          "minutes_ago": 25,
+          "level": "ERROR",
+          "msg": "HikariPool-1 - Connection is not available, request timed out after 30000ms"
+        },
+        {
+          "minutes_ago": 9,
+          "level": "ERROR",
+          "msg": "HikariPool-1 - Connection is not available, request timed out after 30000ms"
+        },
+        {
+          "minutes_ago": 4,
+          "level": "WARN",
+          "msg": "Slow query (15100 ms): SELECT * FROM order_items WHERE customer_ref = ? ORDER BY created_at"
+        }
+      ],
+      "deploys": [
+        {
+          "minutes_ago": 1320,
+          "kind": "deploy",
+          "version": "v7.3.1",
+          "author": "akim",
+          "summary": "Add customer_ref filter to order history API"
+        }
+      ]
+    },
+    "checkout-svc": {
+      "metrics": {
+        "latency_p99_ms": {
+          "baseline": 300,
+          "points": [
+            [
+              60,
+              300
+            ],
+            [
+              50,
+              300
+            ],
+            [
+              40,
+              300
+            ],
+            [
+              30,
+              300
+            ],
+            [
+              20,
+              300
+            ],
+            [
+              10,
+              300
+            ],
+            [
+              0,
+              300
+            ]
+          ]
+        },
+        "error_rate_pct": {
+          "baseline": 0.2,
+          "points": [
+            [
+              60,
+              0.2
+            ],
+            [
+              50,
+              0.2
+            ],
+            [
+              40,
+              0.2
+            ],
+            [
+              30,
+              0.2
+            ],
+            [
+              20,
+              0.2
+            ],
+            [
+              10,
+              0.2
+            ],
+            [
+              0,
+              0.2
+            ]
+          ]
+        },
+        "cpu_utilization_pct": {
+          "baseline": 35,
+          "points": [
+            [
+              60,
+              35
+            ],
+            [
+              50,
+              35
+            ],
+            [
+              40,
+              35
+            ],
+            [
+              30,
+              35
+            ],
+            [
+              20,
+              35
+            ],
+            [
+              10,
+              35
+            ],
+            [
+              0,
+              35
+            ]
+          ]
+        },
+        "rps": {
+          "baseline": 200,
+          "points": [
+            [
+              60,
+              200
+            ],
+            [
+              50,
+              200
+            ],
+            [
+              40,
+              200
+            ],
+            [
+              30,
+              200
+            ],
+            [
+              20,
+              200
+            ],
+            [
+              10,
+              200
+            ],
+            [
+              0,
+              200
+            ]
+          ]
+        }
+      },
+      "logs": [
+        {
+          "minutes_ago": 45,
+          "level": "INFO",
+          "msg": "health check ok"
+        }
+      ],
+      "deploys": []
+    }
+  }
+}

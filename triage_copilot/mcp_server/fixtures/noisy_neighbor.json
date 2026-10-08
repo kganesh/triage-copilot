@@ -1,0 +1,385 @@
+{
+  "description": "payments-svc CPU saturated by a co-located batch job whose parallelism was raised.",
+  "services": {
+    "payments-svc": {
+      "metrics": {
+        "latency_p99_ms": {
+          "baseline": 180,
+          "points": [
+            [
+              60,
+              175
+            ],
+            [
+              50,
+              180
+            ],
+            [
+              40,
+              650
+            ],
+            [
+              30,
+              1400
+            ],
+            [
+              20,
+              1500
+            ],
+            [
+              10,
+              1550
+            ],
+            [
+              0,
+              1600
+            ]
+          ]
+        },
+        "error_rate_pct": {
+          "baseline": 0.1,
+          "points": [
+            [
+              60,
+              0.1
+            ],
+            [
+              50,
+              0.1
+            ],
+            [
+              40,
+              0.4
+            ],
+            [
+              30,
+              1.1
+            ],
+            [
+              20,
+              1.2
+            ],
+            [
+              10,
+              1.3
+            ],
+            [
+              0,
+              1.2
+            ]
+          ]
+        },
+        "cpu_utilization_pct": {
+          "baseline": 45,
+          "points": [
+            [
+              60,
+              44
+            ],
+            [
+              50,
+              46
+            ],
+            [
+              40,
+              92
+            ],
+            [
+              30,
+              98
+            ],
+            [
+              20,
+              99
+            ],
+            [
+              10,
+              98
+            ],
+            [
+              0,
+              99
+            ]
+          ],
+          "note": "CPU throttled; node shared with batch-reconciler"
+        },
+        "rps": {
+          "baseline": 400,
+          "points": [
+            [
+              60,
+              398
+            ],
+            [
+              50,
+              402
+            ],
+            [
+              40,
+              400
+            ],
+            [
+              30,
+              401
+            ],
+            [
+              20,
+              399
+            ],
+            [
+              10,
+              400
+            ],
+            [
+              0,
+              400
+            ]
+          ]
+        }
+      },
+      "logs": [
+        {
+          "minutes_ago": 35,
+          "level": "WARN",
+          "msg": "Executor queue depth 480 exceeds threshold 100"
+        },
+        {
+          "minutes_ago": 20,
+          "level": "ERROR",
+          "msg": "Timed out waiting for worker thread after 1000ms (POST /charge)"
+        }
+      ],
+      "deploys": []
+    },
+    "batch-reconciler": {
+      "metrics": {
+        "cpu_utilization_pct": {
+          "baseline": 20,
+          "points": [
+            [
+              60,
+              18
+            ],
+            [
+              50,
+              22
+            ],
+            [
+              40,
+              85
+            ],
+            [
+              30,
+              95
+            ],
+            [
+              20,
+              96
+            ],
+            [
+              10,
+              95
+            ],
+            [
+              0,
+              96
+            ]
+          ]
+        },
+        "rps": {
+          "baseline": 5,
+          "points": [
+            [
+              60,
+              5
+            ],
+            [
+              50,
+              5
+            ],
+            [
+              40,
+              5
+            ],
+            [
+              30,
+              5
+            ],
+            [
+              20,
+              5
+            ],
+            [
+              10,
+              5
+            ],
+            [
+              0,
+              5
+            ]
+          ]
+        }
+      },
+      "logs": [
+        {
+          "minutes_ago": 41,
+          "level": "INFO",
+          "msg": "Reconciliation run started with parallelism=32"
+        }
+      ],
+      "deploys": [
+        {
+          "minutes_ago": 42,
+          "kind": "config",
+          "version": "cfg-118",
+          "author": "ops-bot",
+          "summary": "Increase reconciliation parallelism 4 -> 32"
+        }
+      ]
+    },
+    "auth-svc": {
+      "metrics": {
+        "latency_p99_ms": {
+          "baseline": 120,
+          "points": [
+            [
+              60,
+              120
+            ],
+            [
+              50,
+              120
+            ],
+            [
+              40,
+              120
+            ],
+            [
+              30,
+              120
+            ],
+            [
+              20,
+              120
+            ],
+            [
+              10,
+              120
+            ],
+            [
+              0,
+              120
+            ]
+          ]
+        },
+        "error_rate_pct": {
+          "baseline": 0.1,
+          "points": [
+            [
+              60,
+              0.1
+            ],
+            [
+              50,
+              0.1
+            ],
+            [
+              40,
+              0.1
+            ],
+            [
+              30,
+              0.1
+            ],
+            [
+              20,
+              0.1
+            ],
+            [
+              10,
+              0.1
+            ],
+            [
+              0,
+              0.1
+            ]
+          ]
+        },
+        "cpu_utilization_pct": {
+          "baseline": 35,
+          "points": [
+            [
+              60,
+              35
+            ],
+            [
+              50,
+              35
+            ],
+            [
+              40,
+              35
+            ],
+            [
+              30,
+              35
+            ],
+            [
+              20,
+              35
+            ],
+            [
+              10,
+              35
+            ],
+            [
+              0,
+              35
+            ]
+          ]
+        },
+        "rps": {
+          "baseline": 200,
+          "points": [
+            [
+              60,
+              200
+            ],
+            [
+              50,
+              200
+            ],
+            [
+              40,
+              200
+            ],
+            [
+              30,
+              200
+            ],
+            [
+              20,
+              200
+            ],
+            [
+              10,
+              200
+            ],
+            [
+              0,
+              200
+            ]
+          ]
+        }
+      },
+      "logs": [
+        {
+          "minutes_ago": 45,
+          "level": "INFO",
+          "msg": "health check ok"
+        }
+      ],
+      "deploys": []
+    }
+  }
+}
